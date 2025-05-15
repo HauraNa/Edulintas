@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EDUlintas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="konsepBerita.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">EDU<span>lintas</span>.</a>
+      <div class="navbar-nav">
+        <a href="#">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+        <a href="#news">Berita Terbaru</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="#" id="search" title="Search"><i data-feather="search"></i></a>
+        <a href="#" id="settings" title="Settings"><i data-feather="settings"></i></a>
+        <a href="#" id="hamburger-menu" title="Open Menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Selamat Datang di <span>EDUlintas</span></h1>
+        <p>Platform edukasi interaktif dan informatif untuk semua kalangan.</p>
+        <a href="#menu" class="cta-button">Jelajahi Sekarang</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>Tentang Kami</h2>
+      <p>
+        EDUlintas adalah platform edukatif yang menyediakan berbagai materi belajar,
+        kuis interaktif, dan sumber daya untuk mendukung pembelajaran digital.
+      </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="menu" class="features">
+      <h2>Fitur Unggulan</h2>
+      <div class="features-list">
+        <div class="feature-item">📘 Materi Interaktif</div>
+        <div class="feature-item">🧠 Kuis Pintar</div>
+        <div class="feature-item">💻 Akses Online 24/7</div>
+        <a
+          href="materiInteraktif.html"
+          class="cta-button includesfeatures-list"
+        >
+          Akses Materi dan kuis Menarik disini yuk😁
+        </a>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news-section" class="features">
+      <h2>Berita Terbaru</h2>
+      <div class="news-scroll-wrapper">
+        <button class="scroll-button" onclick="scrollLeft()">←</button>
+        <div class="news-container" id="newsBox">
+          <a href="https://example.com/berita1" class="news-card" target="_blank" rel="noopener">
+            <img src="https://via.placeholder.com/200x120?text=Berita+1" alt="Berita 1" />
+            <div class="news-title">Judul Berita 1</div>
+          </a>
+          <a href="https://example.com/berita2" class="news-card" target="_blank" rel="noopener">
+            <img src="https://via.placeholder.com/200x120?text=Berita+2" alt="Berita 2" />
+            <div class="news-title">Judul Berita 2</div>
+          </a>
+          <a href="https://example.com/berita3" class="news-card" target="_blank" rel="noopener">
+            <img src="https://via.placeholder.com/200x120?text=Berita+3" alt="Berita 3" />
+            <div class="news-title">Judul Berita 3</div>
+          </a>
+          <a href="https://example.com/berita4" class="news-card" target="_blank" rel="noopener">
+            <img src="https://via.placeholder.com/200x120?text=Berita+4" alt="Berita 4" />
+            <div class="news-title">Judul Berita 4</div>
+          </a>
+        </div>
+        <button class="scroll-button" onclick="scrollRight()">→</button>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h3>Mau kasih saran? BOLEHHH😊</h3>
+      <form>
+        <input type="text" placeholder="Email/Username" required />
+        <input type="text" placeholder="Nama Panggilan" required />
+        <textarea placeholder="Pesan Anda..." required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 EDUlintas. All rights reserved.</p>
+      <p>
+        &copy; Dukung Kami:
+        <a href="https://instagram.com/rphhaaa" target="_blank" rel="noopener" title="Follow us on Instagram">
+          <i class="fab fa-instagram fa-2x instagram-icon"></i>
+        </a>
+        . lorem ipsum
+      </p>
+    </footer>
+
+    <!-- Chatbot -->
+    <button id="chatbot-toggle" class="chatbot-toggle">💬 Chat with Bot</button>
+
+    <div id="chatbot-container" class="chatbot-container hidden">
+      <div class="chatbot-header">
+        <span>Chatbot</span>
+        <button id="close-chat" class="close-chat">X</button>
+      </div>
+      <div id="chatbot-messages" class="chatbot-messages"></div>
+      <input type="text" id="chatbot-input" placeholder="Type a message..." />
+      <button id="send-message">Send</button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      const newsBox = document.getElementById("newsBox");
+
+      function scrollLeft() {
+        newsBox.scrollBy({ left: -220, behavior: "smooth" });
+      }
+
+      function scrollRight() {
+        newsBox.scrollBy({ left: 220, behavior: "smooth" });
+      }
+
+      document.getElementById("chatbot-toggle").addEventListener("click", () => {
+        document.getElementById("chatbot-container").style.display = "flex";
+      });
+
+      document.getElementById("close-chat").addEventListener("click", () => {
+        document.getElementById("chatbot-container").style.display = "none";
+      });
+
+      document.getElementById("send-message").addEventListener("click", () => {
+        const userMessage = document.getElementById("chatbot-input").value;
+        if (userMessage.trim() === "") return;
+
+        addMessageToChat("You: " + userMessage);
+
+        setTimeout(() => {
+          addMessageToChat("Bot: " + getBotResponse(userMessage));
+        }, 1000);
+
+        document.getElementById("chatbot-input").value = "";
+      });
+
+      function addMessageToChat(message) {
+        const messageContainer = document.getElementById("chatbot-messages");
+        const newMessage = document.createElement("p");
+        newMessage.textContent = message;
+        messageContainer.appendChild(newMessage);
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+      }
+
+      function getBotResponse(input) {
+        const lowerInput = input.toLowerCase();
+        if (lowerInput.includes("hi") || lowerInput.includes("hello")) {
+          return "Hello! How can I assist you today?";
+        } else if (lowerInput.includes("menu")) {
+          return "You can explore the menu and features of EDUlintas above.";
+        } else if (lowerInput.includes("contact")) {
+          return "You can reach us through the contact form below.";
+        } else {
+          return "I'm sorry, I don't understand. Can you please rephrase?";
+        }
+      }
+    </script>
+  </body>
+</html>

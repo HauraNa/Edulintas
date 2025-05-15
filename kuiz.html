@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kartu Berita Scroll Horizontal</title>
+    <link rel="stylesheet" href="konsepBerita.css" />
+  </head>
+
+  <body>
+    <h2>Berita Pilihan</h2>
+
+    <div class="news-scroll-wrapper">
+      <button class="scroll-button" onclick="scrollLeft()">←</button>
+
+      <div class="news-container" id="newsBox">
+        <a href="https://example.com/berita1" class="news-card" target="_blank">
+          <img
+            src="https://via.placeholder.com/200x120?text=Berita+1"
+            alt="Berita 1"
+          />
+          <div class="news-title">Judul Berita 1</div>
+        </a>
+        <a href="https://example.com/berita2" class="news-card" target="_blank">
+          <img
+            src="https://via.placeholder.com/200x120?text=Berita+2"
+            alt="Berita 2"
+          />
+          <div class="news-title">Judul Berita 2</div>
+        </a>
+        <a href="https://example.com/berita3" class="news-card" target="_blank">
+          <img
+            src="https://via.placeholder.com/200x120?text=Berita+3"
+            alt="Berita 3"
+          />
+          <div class="news-title">Judul Berita 3</div>
+        </a>
+        <a href="https://example.com/berita4" class="news-card" target="_blank">
+          <img
+            src="https://via.placeholder.com/200x120?text=Berita+4"
+            alt="Berita 4"
+          />
+          <div class="news-title">Judul Berita 4</div>
+        </a>
+        <!-- Tambahkan lebih banyak kartu berita sesuai kebutuhan -->
+      </div>
+
+      <button class="scroll-button" onclick="scrollRight()">→</button>
+    </div>
+
+    <script>
+      const newsBox = document.getElementById("newsBox");
+
+      function scrollLeft() {
+        newsBox.scrollBy({ left: -220, behavior: "smooth" });
+      }
+
+      function scrollRight() {
+        newsBox.scrollBy({ left: 220, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
