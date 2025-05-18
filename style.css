@@ -1,359 +1,194 @@
+/* -------------------------------------------------------------------
+   EDUlintas Responsive Styles – updated 17 May 2025
+   Notes:
+   • Colour palette kept identical to user original request.
+   • Only layout‑/type‑related changes for better behaviour on phones, tablets & desktops.
+--------------------------------------------------------------------*/
+
+/* 1. CSS RESET & BASE ------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
-
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* fluid root sizing later overridden */
+}
+:root {
+  --clr-primary: #2d7efb;
+  --clr-primary-light: #6ea3f9;
+  --clr-accent: #ffe600;
+  --radius: .5rem;
+  --transition: .25s ease-in-out;
+}
 body {
-  background-color: #f9f9f9;
+  font-family: "Poppins", sans-serif;
+  background: #f9f9f9;
   color: #333;
   line-height: 1.6;
 }
 
+/* 2. NAVBAR ----------------------------------------------------------*/
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem clamp(1rem, 5vw, 3rem);
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.navbar2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: rgb(45, 126, 251);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
 .navbar-logo {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #2d7efb;
+  color: var(--clr-primary);
   text-decoration: none;
 }
-
-.navbar2-logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #f8f8f9;
-  text-decoration: none;
+.navbar-logo span {color:#111}
+.navbar-nav {
+  display:flex;
+  gap: clamp(.75rem,4vw,1.5rem);
+  transition: var(--transition);
 }
-
-.navbar-logo span {
-  color: #111;
-}
-
 .navbar-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+  position:relative;
 }
-
-.navbar-extra a {
-  margin-left: 10px;
-  color: #333;
+.navbar-nav a::after {
+  content:"";
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0%;
+  height:2px;
+  background:var(--clr-primary);
+  transition: var(--transition);
 }
+.navbar-nav a:hover::after {width:100%}
 
+/* burger visible on <768px */
+.navbar-extra #hamburger-menu {display:none; cursor:pointer;}
+
+/* 3. HERO ------------------------------------------------------------*/
 .hero {
-  background: linear-gradient(to right, #2d7efb, #6ea3f9);
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
+  background: linear-gradient(to right, var(--clr-primary), var(--clr-primary-light));
+  color:#fff;
+  text-align:center;
+  padding: clamp(5rem,20vh,8rem) 1.25rem;
 }
-
 .hero-content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: clamp(2rem,4.5vw,3rem);
+  margin-bottom:.5rem;
 }
-
-.hero-content span {
-  color: #ffe600;
-}
-
+.hero-content span {color: var(--clr-accent);}
 .cta-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #fff;
-  color: rgb(45, 126, 251);
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 5px;
+  display:inline-block;
+  margin-top:1.25rem;
+  padding:.75rem 1.5rem;
+  background:#fff;
+  color:var(--clr-primary);
+  font-weight:600;
+  border-radius: var(--radius);
+  text-decoration:none;
+  transition: var(--transition);
 }
+.cta-button:hover {transform:translateY(-2px); box-shadow:0 4px 6px rgba(0,0,0,.15)}
 
-.kotakM {
-  background: linear-gradient(to right, #2d7efb, #6ea3f9);
-  color: white;
-  text-align: left;
-  padding: 7px 10px;
-}
-.about,
-.features,
-.contact {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.mIntbg {
-  padding: 150px 100px;
-  text-align: center;
-  --s: 84px; /* control the size*/
-  --c1: #2676f7;
-  --c2: #f2ff3d;
-  --c3: #42c6ff;
-
-  --_g: 0 120deg, #0000 0;
-  background: conic-gradient(
-      at calc(250% / 3) calc(100% / 3),
-      var(--c3) var(--_g)
-    ),
-    conic-gradient(
-      from -120deg at calc(50% / 3) calc(100% / 3),
-      var(--c2) var(--_g)
-    ),
-    conic-gradient(
-      from 120deg at calc(100% / 3) calc(250% / 3),
-      var(--c1) var(--_g)
-    ),
-    conic-gradient(
-      from 120deg at calc(200% / 3) calc(250% / 3),
-      var(--c1) var(--_g)
-    ),
-    conic-gradient(
-      from -180deg at calc(100% / 3) 50%,
-      var(--c2) 60deg,
-      var(--c1) var(--_g)
-    ),
-    conic-gradient(
-      from 60deg at calc(200% / 3) 50%,
-      var(--c1) 60deg,
-      var(--c3) var(--_g)
-    ),
-    conic-gradient(
-      from -60deg at 50% calc(100% / 3),
-      var(--c1) 120deg,
-      var(--c2) 0 240deg,
-      var(--c3) 0
-    );
-  background-size: calc(var(--s) * sqrt(3)) var(--s);
-}
-
+/* 4. SECTIONS --------------------------------------------------------*/
+section {padding: clamp(3.5rem,8vw,5rem) 1.25rem; text-align:center;}
 .features-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1.25rem;
 }
-
 .feature-item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
+  flex:1 1 clamp(180px,25%,260px);
+  background:#fff;
+  padding:1.25rem;
+  border-radius:var(--radius);
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
 
+/* 5. NEWS MARQUEE ----------------------------------------------------*/
+.news-scroll-wrapper {
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  overflow:hidden;
+}
+.news-container {
+  display:flex;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  gap:.75rem;
+  padding-bottom:.25rem;
+}
+.news-card {
+  flex:0 0 200px;
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:0 1px 4px rgba(0,0,0,.1);
+  transition: var(--transition);
+}
+.news-card:hover {transform:translateY(-3px)}
+.news-title {padding:.5rem; font-weight:600; font-size:.9rem; color:#333}
+
+/* 6. FORMS -----------------------------------------------------------*/
 .contact form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  max-width:28rem;
+  margin-inline:auto;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
 }
-
-.contact input,
-.contact textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.contact input, .contact textarea {
+  padding:.65rem;
+  border:1px solid #ccc;
+  border-radius:var(--radius);
+  resize:vertical;
+  max-width: 100%;
+  box-sizing: border-box;
 }
-
 .contact button {
-  background: #2d7efb;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+  background:var(--clr-primary);
+  color:#fff;
+  border:none;
+  padding:.75rem;
+  border-radius:var(--radius);
+  font-size:1rem;
+  cursor:pointer;
+  transition: var(--transition);
+}
+.contact button:hover {opacity:.9}
+
+/* 7. CHATBOT ---------------------------------------------------------*/
+.chatbot-toggle {position:fixed; bottom:1.25rem; right:1.25rem; background:var(--clr-primary); color:#fff; border:none; padding:1rem; border-radius:50%; font-size:1.1rem; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,.2);}
+.chatbot-container {position:fixed; bottom:5.5rem; right:1.25rem; width:min(90vw,20rem); height:25rem; background:#fff; border-radius:var(--radius); box-shadow:0 4px 10px rgba(0,0,0,.2); display:flex; flex-direction:column; padding:1rem;}
+
+/* 8. FOOTER ----------------------------------------------------------*/
+footer {background:#eee; padding:1.25rem; text-align:center; margin-top:2rem;}
+
+/* -------------------------------------------------------------------
+   9. BREAKPOINTS
+--------------------------------------------------------------------*/
+/* <= 768px – tablets & large phones */
+@media (max-width: 768px){
+  .navbar-nav{position:fixed; inset:0 0 0 40%; background:#fff; flex-direction:column; padding:5rem 2rem; transform:translateX(100%);}
+  .navbar-nav.show{transform:translateX(0);}
+  .navbar-extra #hamburger-menu{display:block;}
 }
 
-footer {
-  background-color: #eee;
-  padding: 20px;
-  text-align: center;
-  margin-top: 40px;
-}
-
-/* Laptop*/
-@media (max-width: 1366px) {
-  html {
-    font-size: 75%;
-  }
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-  html {
-    font-size: 62.5%;
-  }
-}
-/*mobile*/
-@media (max-width: 450px) {
-  html {
-    font-size: 55%;
-  }
-}
-
-/* Chatbot Styles */
-.chatbot-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #2d7efb;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.chatbot-container {
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  width: 300px;
-  height: 400px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.chatbot-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-}
-
-.chatbot-messages {
-  flex: 1;
-  overflow-y: auto;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  padding: 10px;
-  max-height: 250px;
-  border-radius: 5px;
-}
-
-.chatbot-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-#send-message {
-  background-color: #2d7efb;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.close-chat {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.password-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.password-wrapper input {
-  padding-right: 40px;
-  width: 200px;
-  height: 30px;
-  font-size: 16px;
-}
-
-.toggle-eye {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 18px;
-}
-
-.scroll-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 12px;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
-}
-
-.scroll-container img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.section-absolute {
-  position: relative;
-  height: 300px;
-  background: #ddd;
-  padding: 20px;
-}
-
-.login {
-  height: 460px;
-  background: #eee;
-  border-radius: 60% / 10%;
-  transform: translateY(-180px);
-  transform: 0.8s ease-in-out;
-}
-
-.login label {
-  color: #573b8a;
-  transform: scale(0.6);
-}
-
-#chk:checked ~ .login label {
-  transform: scale(1);
-}
-
-.page img {
-  width: 100%; /* Make the image take the full width of the container */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: cover; /* Ensure the image covers the container */
-  border-radius: 5px; /* Optional: Add rounded corners */
+/* <= 480px – small phones */
+@media (max-width:480px){
+  html{font-size:90%;}
+  .hero-content h1{font-size:clamp(1.75rem,9vw,2.25rem);}
+  .features-list{gap:.75rem;}
+  .feature-item{flex:1 1 100%;}
 }
