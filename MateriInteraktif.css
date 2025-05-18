@@ -6,7 +6,6 @@
 }
 
 body {
-  overflow-x: hidden;
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
@@ -314,13 +313,10 @@ html {
     height: 300px;
     bottom: 60px;
     right: 5vw;
-    body { background: #f5f0e6; font-family: 'Merriweather', serif; }
+  }
+}
 
-
-/* ============================
-   ✅ Mobile & Tablet Fixes
-   ============================ */
-
+/* Responsive Enhancements */
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 28px;
@@ -362,9 +358,12 @@ html {
     display: block;
     margin: 10px 0;
   }
+
+  .container, .content-wrapper {
+    padding: 10px;
+  }
 }
 
-/* Extra small screens (phones) */
 @media (max-width: 450px) {
   .hero-content h1 {
     font-size: 22px;
@@ -384,9 +383,6 @@ html {
   }
 }
 
-/* Prevent horizontal scroll */
 body {
   overflow-x: hidden;
-}
-  }
 }
