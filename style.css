@@ -171,6 +171,52 @@ section {padding: clamp(3.5rem,8vw,5rem) 1.25rem; text-align:center;}
 /* 7. CHATBOT ---------------------------------------------------------*/
 .chatbot-toggle {position:fixed; bottom:1.25rem; right:1.25rem; background:var(--clr-primary); color:#fff; border:none; padding:1rem; border-radius:50%; font-size:1.1rem; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,.2);}
 .chatbot-container {position:fixed; bottom:5.5rem; right:1.25rem; width:min(90vw,20rem); height:25rem; background:#fff; border-radius:var(--radius); box-shadow:0 4px 10px rgba(0,0,0,.2); display:flex; flex-direction:column; padding:1rem;}
+#chatbot-container {
+  border: 2px solid #0d6efd;
+  background: linear-gradient(145deg, #ffffff, #e6f0ff);
+  border-radius: 15px;
+}
+#chatbot-messages {
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#chatbot-messages p {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+#chatbot-messages p.user-message {
+  align-self: flex-end;
+  background-color: #d0ebff;
+  color: #004085;
+  padding: 8px 12px;
+  border-radius: 20px 20px 0 20px;
+  max-width: 75%;
+}
+#chatbot-messages p.bot-message {
+  align-self: flex-start;
+  background-color: #e2f0d9;
+  color: #1b4332;
+  padding: 8px 12px;
+  border-radius: 20px 20px 20px 0;
+  max-width: 75%;
+}
+#chatbot-messages p:nth-child(odd) {
+  background-color: #e9ecef;
+  align-self: flex-start;
+}
+#chatbot-messages p:nth-child(even) {
+  background-color: #cfe2ff;
+  align-self: flex-end;
+  text-align: right;
+}
 
 /* 8. FOOTER ----------------------------------------------------------*/
 footer {background:#eee; padding:1.25rem; text-align:center; margin-top:2rem;}
@@ -191,4 +237,9 @@ footer {background:#eee; padding:1.25rem; text-align:center; margin-top:2rem;}
   .hero-content h1{font-size:clamp(1.75rem,9vw,2.25rem);}
   .features-list{gap:.75rem;}
   .feature-item{flex:1 1 100%;}
+  #chatbot-messages p {
+    font-size: 0.95rem;
+    max-width: 95%;
+    padding: 7px 8px;
+  }
 }
